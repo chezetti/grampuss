@@ -1,12 +1,7 @@
 #!/bin/bash
 
-# Директория проекта
-PROJECT_DIR="/grampuss"
 # Имя приложения в pm2
 PM2_APP_NAME="grampuss"
-
-# Переходим в директорию проекта
-cd $PROJECT_DIR || { echo "Could not enter the project directory. Exiting."; exit 1; }
 
 # Логи операций
 LOG_FILE="./deployment.log"
