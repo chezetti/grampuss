@@ -1,7 +1,12 @@
 #!/bin/bash
 
+# Директория проекта
+PROJECT_DIR="/grampuss"
 # Имя приложения в pm2
 PM2_APP_NAME="grampuss"
+
+# Переходим в директорию проекта
+cd $PROJECT_DIR || { echo "Could not enter the project directory. Exiting."; exit 1; }
 
 # Логи операций
 LOG_FILE="./deployment.log"
@@ -10,7 +15,7 @@ LOG_FILE="./deployment.log"
 echo "Deployment started at $(date)" >> $LOG_FILE
 
 # Подтягиваем изменения из репозитория
-git pull origin master >> $LOG_FILE 2>&1 || { echo "git pull failed. Check $LOG_FILE for details." ; exit 1; }
+git pull origin main >> $LOG_FILE 2>&1 || { echo "git pull failed. Check $LOG_FILE for details." ; exit 1; }
 
 # Устанавливаем зависимости
 npm ci >> $LOG_FILE 2>&1 || { echo "npm ci failed. Check $LOG_FILE for details." ; exit 1; }
