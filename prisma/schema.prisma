@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// model User {
+//   id    Int     @id @default(autoincrement())
+//   tonWallet String? 
+//   telegramId String? 
+//   twitterId String? 
+//   telegramChecked Boolean @default(false)
+//   twitterChecked Boolean @default(false)
+//   points Int @default(0)
+// }
+
+model User {
+  id    Int     @id @default(autoincrement())
+  tonWallet String? 
+  telegramId String? 
+  twitterId String? 
+  twitterName String?
+  telegramFollow Boolean @default(false)
+  twitterFollow Boolean @default(false)
+  points Int @default(0)
+  email String?
+  providerId String?
+  userName String?
+}
+
+// npx prisma migrate dev --name [migrate name]
+// npx prisma migrate deploy
+// npx prisma generate
