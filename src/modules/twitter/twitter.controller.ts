@@ -17,7 +17,7 @@ export class TwitterController {
     private readonly httpService: HttpService,
   ) {}
 
-  @Get('check-subscribe')
+  @Get('subscription')
   async checkSubscribeToTelegram(@Query() dto: { twitterId: string }) {
     return this.twitterService.checkSubscribeToTwitter(dto.twitterId);
   }
