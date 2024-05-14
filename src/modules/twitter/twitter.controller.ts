@@ -18,8 +18,8 @@ export class TwitterController {
   ) {}
 
   @Get('check-subscribe')
-  async checkSubscribeToTelegram(@Query('twitterId') twitterId: string) {
-    return this.twitterService.checkSubscribeToTwitter(twitterId);
+  async checkSubscribeToTelegram(@Query() dto: { twitterId: string }) {
+    return this.twitterService.checkSubscribeToTwitter(dto.twitterId);
   }
 
   @Post('subscribe')
