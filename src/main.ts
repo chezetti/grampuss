@@ -22,7 +22,10 @@ async function bootstrap() {
 
   app.use(cookieParser());
 
-  // app.enableCors();
+  app.enableCors({
+    credentials: true,
+    origin: APP.frontendUrl,
+  });
 
   await app.listen(process.env.SERVER_PORT || 3000);
 }
